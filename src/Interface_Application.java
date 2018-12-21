@@ -280,3 +280,121 @@ public class Interface_Application
 			App.View_Options();
 		}
 }
+/**************************************************************************************/
+	class Report
+	{
+		public Item FoundItem;
+		public String ReporterName;
+		public ListOfItems List;
+		//public Users List2;
+		////////////////////////////
+		public void Fill_Reporter_Form()
+		{
+			List = new ListOfItems();
+			ArrayList<Item> AvailableItems = List.Get_List();
+			
+			/*List2 = new Users();
+			ArrayList<User> App_Users = List2.Get_List();*/
+			
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter ID: ");
+			String s1 = input.nextLine();
+			System.out.println("Enter Place: ");
+			String s2 = input.nextLine();
+			System.out.println("Enter Type: ");
+			String s3 = input.nextLine();
+			System.out.println("Enter Special Description: ");
+			String s5 = input.nextLine();
+			
+			ReporterName = new String ( App_Users.get(Logged_in_User_No).Get_Name() );
+			
+			FoundItem = new Item(s1, s2, s3, ReporterName, s5);
+			AvailableItems.add(FoundItem);
+			System.out.println("Your Item was reported successfully.");
+		}
+	}
+	/**************************************************************************************/
+	class Request
+	{
+		public Item LostItem;
+		public String OwnerName;
+		public Request_Handler List;
+		//public Users List2;
+		/////////////////////////////
+		public Request()
+		{
+			
+		}
+		/////////////////////////////
+		public Request(Item m, String s)
+		{
+			LostItem = new Item(m.Get_ID(), m.Get_Place(), m.Get_Type(), m.Get_Finder(), m.Get_Description());
+			OwnerName = new String(s);
+		}
+		////////////////////////////
+		public void Fill_Owner_Form()
+		{
+			List = new Request_Handler();
+			ArrayList<Request> ListOfRequests = List.Get_List();
+			
+			/*List2 = new Users();
+			ArrayList<User> App_Users = List2.Get_List();*/
+			
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter Item ID: ");
+			String s1 = input.nextLine();
+			System.out.println("Enter Place: ");
+			String s2 = input.nextLine();
+			System.out.println("Enter Special Description: ");
+			String s5 = input.nextLine();
+			
+			OwnerName = new String ( App_Users.get(Logged_in_User_No).Get_Name() );
+			LostItem = new Item(s1, s2, "", OwnerName, s5);
+			Request r = new Request(LostItem, OwnerName);
+			ListOfRequests.add(r);
+			
+			System.out.println("Your Request was sent successfully.");
+		}
+	}
+	/**************************************************************************************/
+	class Request_Handler
+	{
+		public ArrayList<Request> ListOfRequests = new ArrayList<>();
+		///////////////////////////////////
+		public Request_Handler()
+		{
+		}
+		//////////////////////////////////
+		public void View_Requests()
+		{
+			for(int i=0; i< ListOfRequests.size(); i++)
+			{
+				System.out.println("Request No. ");
+				System.out.print(i+1);
+				System.out.println("Place: ");
+				System.out.print(ListOfRequests.get(i).LostItem.Get_Place());
+				System.out.println("Finder Name: ");
+				System.out.print(ListOfRequests.get(i).LostItem.Get_Finder());
+				System.out.println("Special Description: ");
+				System.out.print(ListOfRequests.get(i).LostItem.Get_Description());
+				System.out.println("---------------");
+			}
+		}
+		///////////////////////////////
+		public ArrayList<Request> Get_List()
+		{
+			return ListOfRequests;
+		}
+	}
+	/**************************************************************************************/
+	class User_Services
+	{
+		public void Show_Available_Services()
+		{
+			System.out.println(" 1) View Available Items. ");
+			System.out.println(" 2) Report a new Item. ");
+			System.out.println(" 3) Request an Item. ");
+			System.out.println(" 4) Logout. ");
+			System.out.println(" Enter Your Choice: ");
+		}
+	}
