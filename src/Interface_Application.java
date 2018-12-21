@@ -179,6 +179,31 @@ public class Interface_Application
 			return AvailableItems;
 		}
 	}
+	public void Login()
+		{
+			/*List2 = new Users();
+			ArrayList<User> App_Users = List2.Get_List();*/
+			
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter User Name: ");
+			String s1 = input.nextLine();
+			System.out.println("Enter Password: ");
+			String s2 = input.nextLine();
+			System.out.println(App_Users.size());
+			for(int i=0; i< App_Users.size(); i++)
+			{
+				if((App_Users.get(i).Get_Name()).equals(s1) && (App_Users.get(i).Get_Password()).equals(s2))
+				{
+					System.out.println("Successfully logged in. ");
+					Logged_in_User_No = i;
+				}
+				else
+				{
+					System.out.println("Wrong User Name or Password! Please Try Again. ");
+					break;
+				}
+			}
+		}
 	/**************************************************************************************/
 		public static void main(String[] args) 
 		{
