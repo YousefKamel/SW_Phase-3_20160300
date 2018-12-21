@@ -179,7 +179,69 @@ public class Interface_Application
 			return AvailableItems;
 		}
 	}
-	public void Login()
+	/**************************************************************************************/
+	class Users
+	{
+		//public ArrayList<User> App_Users = new ArrayList<>();
+		////////////////////////////////
+		public Users()
+		{
+		}
+		///////////////////////////////
+		public void AddUser()
+		{
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter Name: ");
+			String s1 = input.nextLine();
+			System.out.println("Enter Password: ");
+			String s2 = input.nextLine();
+			System.out.println("Enter Phone: ");
+			String s3 = input.nextLine();
+			User m = new User(s1, s2, s3);
+			App_Users.add(m);
+			System.out.println("Your Account has been created successfully. ");
+		}
+		//////////////////////////////
+		public void RemoveUser(String UserName)
+		{
+			for(int i=0; i< App_Users.size(); i++)
+			{
+				if( (App_Users.get(i).Get_Name()).equals(UserName) )
+				{
+					App_Users.remove(i);
+				}
+			}
+		}
+		///////////////////////////////
+		/*public ArrayList<User> Get_List()
+		{
+			return App_Users;
+		}*/
+	}
+	/**************************************************************************************/
+	class Registration
+	{
+		//public Users ListOfUsers;
+		//public Users List2;
+		/////////////////////////////
+		public void Create_Account()
+		{
+			/*List2 = new Users();
+			ArrayList<User> App_Users = List2.Get_List();*/
+			
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter Name: ");
+			String s1 = input.nextLine();
+			System.out.println("Enter Password: ");
+			String s2 = input.nextLine();
+			System.out.println("Enter Phone: ");
+			String s3 = input.nextLine();
+			User m = new User(s1, s2, s3);
+			App_Users.add(m);
+			System.out.println("Your Account has been created successfully. ");
+		}
+		///////////////////////////
+		public void Login()
 		{
 			/*List2 = new Users();
 			ArrayList<User> App_Users = List2.Get_List();*/
@@ -204,6 +266,13 @@ public class Interface_Application
 				}
 			}
 		}
+		/////////////////////////////
+		public void Logout()
+		{
+			Logged_in_User_No = -1;
+			System.out.println("You have been logged out successfully. ");
+		}
+	}
 	/**************************************************************************************/
 		public static void main(String[] args) 
 		{
