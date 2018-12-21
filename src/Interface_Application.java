@@ -4,8 +4,73 @@ import java.util.Scanner;
 /***********************************************************************************************/
 public class Interface_Application 
 {
+	public static int Logged_in_User_No = -1;
+	public static ArrayList<User> App_Users = new ArrayList<>();
+	public static ArrayList<Item> AvailableItems = new ArrayList<>();
+	////////////////////////////////////////
 	public void View_Options()
-	{}
+	{
+		while (true)
+		{
+		System.out.println(" \n------- Welcome to Masroka Application -------\n ");
+		System.out.println(" 1) Sign-Up. ");
+		System.out.println(" 2) Login. ");
+		System.out.println(" 3) Login As Admin.[NOT implemented] ");
+		System.out.println(" Enter Your Choice: ");
+		int c;
+		Scanner input = new Scanner(System.in);
+		c = input.nextInt();
+		if(c == 1)
+		{
+			Registration rgs = new Registration();
+			rgs.Create_Account();
+			/*Users us = new Users();
+			us.AddUser();*/
+		}
+		else if (c== 2)
+		{
+			Registration rgs = new Registration();
+			rgs.Login();
+			while(true)
+			{
+			if(Logged_in_User_No != -1) //Successful Login
+			{
+				User_Services srvs = new User_Services();
+				srvs.Show_Available_Services();
+				int Choice;
+				Choice = input.nextInt();
+				if(Choice == 1)
+				{
+					ListOfItems ls = new ListOfItems();
+					ls.ViewItems();
+				}
+				else if(Choice == 2)
+				{
+					Report rep = new Report();
+					rep.Fill_Reporter_Form();
+				}
+				else if(Choice == 3)
+				{
+					Request req = new Request();
+					req.Fill_Owner_Form();
+				}
+				else if(Choice == 4)
+				{
+					rgs.Logout();
+				}
+			}
+			else
+			{
+				break;
+			}
+			}
+		}
+		else
+		{
+			System.out.println("Invalid Input! Try Again.");
+		}
+		}
+	}
 	////////////////////////////////////////
 	class Item
 	{
@@ -274,13 +339,6 @@ public class Interface_Application
 		}
 	}
 	/**************************************************************************************/
-		public static void main(String[] args) 
-		{
-			Interface_Application App = new Interface_Application();
-			App.View_Options();
-		}
-}
-/**************************************************************************************/
 	class Report
 	{
 		public Item FoundItem;
@@ -398,3 +456,64 @@ public class Interface_Application
 			System.out.println(" Enter Your Choice: ");
 		}
 	}
+	/**************************************************************************************/
+	class Admin
+	{
+		private String Name;
+		private String Password;
+		//////////////////////////
+		public String Get_Name()
+		{
+			return Name;
+		}
+		///////////////////////////////////
+		public String Get_Password()
+		{
+			return Password;
+		}
+		///////////////////////////////////
+		public void Set_Name(String s)
+		{
+			Name = new String(s);
+		}
+		///////////////////////////////////
+		public void Set_Password(String s)
+		{
+			Password = new String(s);
+		}
+		///////////////////////////////////
+	}
+	/**************************************************************************************/
+	class Admin_Services
+	{
+		private boolean loggedin;
+		////////////////////////////////
+		public void Judge()
+		{
+		}
+		////////////////////////////
+		public void Login()
+		{
+		}
+	}
+	/**************************************************************************************/
+	class Comparator
+	{
+		public void Compare()
+		{	
+		}
+	}
+	/**************************************************************************************/
+	class Acks_Sender
+	{
+		public void Send_Ack()
+		{
+		}
+	}
+	/**************************************************************************************/
+		public static void main(String[] args) 
+		{
+			Interface_Application App = new Interface_Application();
+			App.View_Options();
+		}
+}
