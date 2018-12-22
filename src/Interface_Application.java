@@ -7,7 +7,15 @@ public class Interface_Application
 	public static int Logged_in_User_No = -1;
 	public static ArrayList<User> App_Users = new ArrayList<>();
 	public static ArrayList<Item> AvailableItems = new ArrayList<>();
+
+
+
 	////////////////////////////////////////
+
+
+
+
+
 	public void View_Options()
 	{
 		while (true)
@@ -71,7 +79,16 @@ public class Interface_Application
 		}
 		}
 	}
+
+
+
+
+
 	////////////////////////////////////////
+
+
+
+
 	class Item
 	{
 		private String ID;
@@ -114,7 +131,14 @@ public class Interface_Application
 			return Special_Description;
 		}
 	}
+
+
 	/*****************************************************************************************/
+
+
+
+
+
 	class User
 	{
 		private String Name;
@@ -154,6 +178,12 @@ public class Interface_Application
 				MsgQueue.get(i).View_Msg();
 			}
 		}
+
+
+
+
+
+
 		//////////////////////////////////
 		public void Add_Msg()
 		{
@@ -168,7 +198,16 @@ public class Interface_Application
 			MsgQueue.add(m);
 		}
 	}
+
+
+
+
+
+
 	/*****************************************************************************************/
+
+
+
 	class Message
 	{
 		public String Subject;
@@ -192,7 +231,18 @@ public class Interface_Application
 			System.out.print(Content);
 		}
 	}
+
+
+
+
+
+
     /**************************************************************************************/
+
+
+
+
+
 	class ListOfItems
 	{
 		//public ArrayList<Item> AvailableItems = new ArrayList<>();
@@ -244,7 +294,15 @@ public class Interface_Application
 			return AvailableItems;
 		}
 	}
+
+
 	/**************************************************************************************/
+
+
+
+
+
+
 	class Users
 	{
 		//public ArrayList<User> App_Users = new ArrayList<>();
@@ -283,7 +341,16 @@ public class Interface_Application
 			return App_Users;
 		}*/
 	}
+
+
+
+
+
 	/**************************************************************************************/
+
+
+
+
 	class Registration
 	{
 		//public Users ListOfUsers;
@@ -338,7 +405,18 @@ public class Interface_Application
 			System.out.println("You have been logged out successfully. ");
 		}
 	}
+
+
+
+
+
+
 	/**************************************************************************************/
+
+
+
+
+
 	class Report
 	{
 		public Item FoundItem;
@@ -371,8 +449,16 @@ public class Interface_Application
 			System.out.println("Your Item was reported successfully.");
 		}
 	}
+
+
+
+
+
 	/**************************************************************************************/
-	class Request
+	
+
+
+     class Request
 	{
 		public Item LostItem;
 		public String OwnerName;
@@ -414,7 +500,15 @@ public class Interface_Application
 			System.out.println("Your Request was sent successfully.");
 		}
 	}
+
+
+
 	/**************************************************************************************/
+
+
+
+
+
 	class Request_Handler
 	{
 		public ArrayList<Request> ListOfRequests = new ArrayList<>();
@@ -444,7 +538,14 @@ public class Interface_Application
 			return ListOfRequests;
 		}
 	}
+
+
+
 	/**************************************************************************************/
+
+
+
+
 	class User_Services
 	{
 		public void Show_Available_Services()
@@ -489,7 +590,7 @@ public class Interface_Application
 		private boolean loggedin;
 		////////////////////////////////
 		public void Judge()
-		{
+		{ /* for judge between two description of the owner and reporter */
 		}
 		////////////////////////////
 		public void Login()
@@ -500,14 +601,14 @@ public class Interface_Application
 	class Comparator
 	{
 		public void Compare()
-		{	
+		{	/* it contains objects of many classes to do comparing */
 		}
 	}
 	/**************************************************************************************/
 	class Acks_Sender
 	{
 		public void Send_Ack()
-		{
+		{/*send acks to reporter and owner acorrding to verfaction of the item or not */
 		}
 	}
 	/**************************************************************************************/
